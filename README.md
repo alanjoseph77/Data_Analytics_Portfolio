@@ -2,8 +2,8 @@
 
 Welcome to my personal portfolio website! This project showcases my expertise in Data Analytics, Business Intelligence, and Data Engineering.
 
-## 🚀 Live Demo
-[Link to your live site if applicable, or remove]
+##  Live Demo
+[https://alanjoseph77.github.io/Data_Analytics_Portfolio/]
 
 ## 🛠️ Built With
 - **HTML5 & CSS3**: Semantic structure and modern styling.
@@ -11,14 +11,14 @@ Welcome to my personal portfolio website! This project showcases my expertise in
 - **JavaScript (Vanilla)**: For interactive elements like modals and mobile navigation.
 - **Lucide Icons**: Beautiful, consistent icons.
 
-## 📂 Portfolio Projects Featured
+## Portfolio Projects Featured
 1.  **Goa Higher Education Dashboard**: Education analytics using Power BI.
 2.  **BMW Parts Inventory System**: Inventory management with predictive alerts (Power BI/SQL).
 3.  **Sales Performance Dashboard**: Revenue forecasting and KPI tracking (Power BI/DAX).
 4.  **HR Employee Analytics**: Attrition and salary trend analysis (Power BI/Excel).
 5.  **Air Quality Analysis**: Comprehensive environmental data analysis using Python/Pandas.
 
-## 📬 Contact
+##  Contact
 - **Email**: alanmonichan122@gmail.com
 - **LinkedIn**: [Alan Joseph Monichan](https://www.linkedin.com/in/alan-joseph-monichan/)
 - **GitHub**: [alanjoseph77](https://github.com/alanjoseph77)
