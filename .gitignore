@@ -1,0 +1,19 @@
+# Systems
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+dist/
+
+# Logs
+npm-debug.log*
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temporary Data
+pro-20260112T093706Z-1-001/

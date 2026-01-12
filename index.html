@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Data Analyst</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Modern Editorial Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:wght@400;500;700&display=swap');
+
+        :root {
+            --bg-paper: #faf9f6;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-paper);
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-display {
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
+
+        .grayscale-filter {
+            filter: grayscale(100%) brightness(105%) contrast(110%);
+        }
+
+        .project-img-container img {
+            filter: grayscale(100%) brightness(95%);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .project-img-container:hover img {
+            filter: grayscale(0%) brightness(100%);
+            transform: scale(1.03);
+        }
+
+        /* Dot Background Overlay */
+        .dot-bg {
+            background-image: radial-gradient(#000 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-marquee {
+            animation: marquee 20s linear infinite;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-paper);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #111;
+        }
+    </style>
+</head>
+
+<body class="text-black selection:bg-black selection:text-white overflow-x-hidden">
+
+    <!-- Background Decoration -->
+    <div class="fixed inset-0 pointer-events-none opacity-[0.05] z-0">
+        <div class="absolute top-0 left-0 w-full h-full dot-bg"></div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-[#faf9f6] z-[60] flex flex-col items-center justify-center space-y-8 transition-transform duration-700 ease-in-out translate-y-full">
+        <button id="close-menu"
+            class="absolute top-8 right-8 p-3 border border-black/10 rounded-full hover:bg-black hover:text-white transition-all">
+            <i data-lucide="x"></i>
+        </button>
+        <a href="#home" class="mobile-link text-6xl font-black tracking-tighter hover:italic transition-all">HOME</a>
+        <a href="#about-me"
+            class="mobile-link text-6xl font-black tracking-tighter hover:italic transition-all">ABOUT</a>
+        <a href="#services"
+            class="mobile-link text-6xl font-black tracking-tighter hover:italic transition-all">SERVICES</a>
+        <a href="#projects"
+            class="mobile-link text-6xl font-black tracking-tighter hover:italic transition-all">PROJECTS</a>
+    </div>
+
+    <!-- Navbar -->
+    <nav
+        class="flex items-center justify-between px-6 py-8 md:px-12 bg-[#faf9f6]/90 backdrop-blur-xl sticky top-0 z-50 border-b border-black/5">
+        <div class="text-2xl font-extrabold tracking-tighter uppercase font-display">
+            ALAN JM<span class="text-gray-300">.</span>
+        </div>
+
+        <div class="hidden md:flex items-center space-x-1 bg-black/5 p-1 rounded-full">
+            <a href="#home"
+                class="px-5 py-2 rounded-full text-[10px] font-bold tracking-widest hover:bg-white transition-all duration-300">HOME</a>
+            <a href="#about-me"
+                class="px-5 py-2 rounded-full text-[10px] font-bold tracking-widest hover:bg-white transition-all duration-300">ABOUT</a>
+            <a href="#services"
+                class="px-5 py-2 rounded-full text-[10px] font-bold tracking-widest hover:bg-white transition-all duration-300">SERVICES</a>
+            <a href="#projects"
+                class="px-5 py-2 rounded-full text-[10px] font-bold tracking-widest hover:bg-white transition-all duration-300">PROJECTS</a>
+        </div>
+
+        <div class="flex items-center space-x-3">
+            <div
+                class="hidden lg:flex items-center space-x-4 border border-black/10 rounded-full px-6 py-2 bg-white/50">
+                <a href="https://github.com/alanjoseph77" class="hover:scale-125 transition-transform"><i
+                        data-lucide="github" class="w-4 h-4"></i></a>
+                <a href="https://www.linkedin.com/in/alan-joseph-monichan/"
+                    class="hover:scale-125 transition-transform"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+            </div>
+            <button id="menu-btn"
+                class="p-3 bg-black text-white rounded-full hover:scale-105 transition-transform shadow-lg shadow-black/10">
+                <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <!-- Hero Section -->
+        <section id="home" class="relative w-full max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-24">
+            <div class="flex flex-col items-center text-center mb-16">
+                <div
+                    class="inline-block px-4 py-1.5 rounded-full border border-black/10 text-[10px] font-bold tracking-[0.3em] uppercase mb-8 bg-white shadow-sm">
+                    Data Analyst — BI Developer
+                </div>
+                <h1 class="text-[13vw] leading-[0.85] font-extrabold tracking-tight uppercase select-none font-display">
+                    Data <span class="text-gray-300 font-normal italic">Driven</span>
+                </h1>
+                <h1
+                    class="text-[13vw] leading-[0.85] font-extrabold tracking-tight text-black uppercase select-none font-display mt-2">
+                    Decisions
+                </h1>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start relative z-20">
+                <div class="flex flex-col items-start space-y-8">
+                    <div
+                        class="w-24 h-24 md:w-32 md:h-32 rounded-2xl border-2 border-black flex items-center justify-center group cursor-pointer hover:bg-black hover:text-white transition-all duration-500">
+                        <i data-lucide="database"
+                            class="w-8 h-8 group-hover:scale-110 transition-transform duration-500"></i>
+                    </div>
+                    <div class="text-sm font-bold tracking-widest text-black/40 uppercase">
+                        Power BI &bull; SQL &bull; Python
+                    </div>
+                </div>
+
+                <div class="flex flex-col justify-between h-full text-right md:text-left">
+                    <div class="max-w-[400px] ml-auto md:ml-0">
+                        <p class="text-lg md:text-xl font-medium leading-relaxed tracking-tight text-black/70 mb-12">
+                            Specialist in ETL workflows, transforming complex datasets into interactive dashboards and
+                            predictive models to drive data-informed decision-making.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3 justify-end md:justify-start">
+                        <span
+                            class="px-4 py-2 bg-white border border-black/5 rounded-full text-[10px] font-bold tracking-widest text-black shadow-sm">ANALYTICS</span>
+                        <span
+                            class="px-4 py-2 bg-white border border-black/5 rounded-full text-[10px] font-bold tracking-widest text-black shadow-sm">ML
+                            MODELS</span>
+                        <span
+                            class="px-4 py-2 bg-white border border-black/5 rounded-full text-[10px] font-bold tracking-widest text-black shadow-sm">BIG
+                            DATA</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scrolling Ticker -->
+        <div class="py-12 border-y border-black/5 overflow-hidden whitespace-nowrap bg-white/50 backdrop-blur-sm">
+            <div class="flex animate-marquee">
+                <div class="flex items-center space-x-12 px-6">
+                    <span class="text-4xl font-black uppercase tracking-tighter font-display">Power BI (DAX)</span>
+                    <span class="w-3 h-3 bg-black rounded-full"></span>
+                    <span class="text-4xl font-black uppercase tracking-tighter font-display">SQL Data Modeling</span>
+                    <span class="w-3 h-3 bg-black rounded-full"></span>
+                    <span class="text-4xl font-black uppercase tracking-tighter font-display">Python & ETL</span>
+                    <span class="w-3 h-3 bg-black rounded-full"></span>
+                    <span class="text-4xl font-black uppercase tracking-tighter font-display">Statistical
+                        Analysis</span>
+                    <span class="w-3 h-3 bg-black rounded-full"></span>
+                </div>
+                <!-- Repeat for seamless loop -->
+                <div class="flex items-center space-x-12 px-6">
+                    <span class="text-4xl font-black uppercase tracking-tighter font-display">Power BI (DAX)</span>
+                    <span class="w-3 h-3 bg-black rounded-full"></span>
+                    <span class="text-4xl font-black uppercase tracking-tighter font-display">SQL Data Modeling</span>
+                    <span class="w-3 h-3 bg-black rounded-full"></span>
+                    <span class="text-4xl font-black uppercase tracking-tighter font-display">Python & ETL</span>
+                    <span class="w-3 h-3 bg-black rounded-full"></span>
+                    <span class="text-4xl font-black uppercase tracking-tighter font-display">Statistical
+                        Analysis</span>
+                    <span class="w-3 h-3 bg-black rounded-full"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <section id="about-me" class="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+                <div class="order-2 md:order-1">
+                    <span class="text-[10px] font-black tracking-[0.4em] text-gray-400 uppercase mb-8 block">Alan Joseph
+                        Monichan</span>
+                    <h2
+                        class="text-5xl md:text-7xl font-bold tracking-tighter leading-[0.9] mb-8 uppercase font-display">
+                        Turning Data into <span class="italic font-normal">Business Value.</span>
+                    </h2>
+                    <p
+                        class="text-gray-500 max-w-md leading-relaxed mb-12 uppercase text-[11px] font-bold tracking-widest">
+                        Analytical Data Analyst with expertise in Power BI, SQL Data Modeling, and Python. I engineer
+                        reporting solutions that reduce manual effort and improve metric interpretability.
+                    </p>
+                    <a href="resume/Alan_Joseph_Monichan_ (3).pdf" target="_blank"
+                        class="group px-10 py-5 bg-black text-white rounded-full text-[10px] font-bold tracking-widest hover:scale-105 transition-all flex items-center space-x-4 inline-flex">
+                        <span>VIEW RESUME</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+                <div class="relative order-1 md:order-2">
+                    <div
+                        class="w-full aspect-square rounded-[2rem] overflow-hidden rotate-3 shadow-2xl hover:rotate-0 transition-transform duration-700">
+                        <img src="images/about_me.png" alt="Data Analytics" class="w-full h-full object-cover" />
+                    </div>
+                    <div
+                        class="absolute -bottom-10 -right-5 md:-right-10 w-40 h-40 bg-black text-white p-6 rounded-full shadow-2xl flex items-center justify-center text-center animate-pulse">
+                        <div class="border border-white/20 rounded-full w-full h-full flex items-center justify-center">
+                            <span
+                                class="text-[10px] font-black tracking-tighter leading-none uppercase">AVAILABILITY<br />2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-32 bg-white border-y border-black/5 px-6 md:px-12">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex justify-between items-end mb-20">
+                    <h2 class="text-6xl md:text-8xl font-black tracking-tighter uppercase font-display">Expertise</h2>
+                    <div class="hidden md:block pb-4 text-[10px] font-bold tracking-widest text-black/40 uppercase">What
+                        I do best</div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <!-- Service Card -->
+                    <div
+                        class="group p-10 border border-black/5 rounded-[2rem] hover:bg-black hover:text-white transition-all duration-500 cursor-pointer bg-[#faf9f6]">
+                        <div class="flex justify-between items-start mb-16">
+                            <span class="text-[10px] font-bold tracking-widest uppercase opacity-40">01</span>
+                            <div
+                                class="w-10 h-10 border border-black/10 group-hover:border-white/20 rounded-full flex items-center justify-center">
+                                <i data-lucide="bar-chart-2" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-4xl font-bold tracking-tighter uppercase mb-4 font-display">Business
+                            Intelligence</h3>
+                        <p class="text-sm opacity-60 leading-relaxed uppercase font-bold tracking-widest">Power BI &
+                            Tableau solutions using Advanced DAX to visualize complex KPIs.</p>
+                    </div>
+                    <div
+                        class="group p-10 border border-black/5 rounded-[2rem] hover:bg-black hover:text-white transition-all duration-500 cursor-pointer bg-[#faf9f6]">
+                        <div class="flex justify-between items-start mb-16">
+                            <span class="text-[10px] font-bold tracking-widest uppercase opacity-40">02</span>
+                            <div
+                                class="w-10 h-10 border border-black/10 group-hover:border-white/20 rounded-full flex items-center justify-center">
+                                <i data-lucide="database" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-4xl font-bold tracking-tighter uppercase mb-4 font-display">Data Engineering
+                        </h3>
+                        <p class="text-sm opacity-60 leading-relaxed uppercase font-bold tracking-widest">Robust ETL
+                            pipelines and SQL data modeling to transform raw data.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Work -->
+        <section id="projects" class="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-24 border-b-2 border-black pb-12">
+                <h2 class="text-7xl md:text-[10rem] font-black tracking-tighter leading-none uppercase font-display">
+                    Case<br />Studies</h2>
+                <div class="flex flex-col items-end text-right mt-8 md:mt-0">
+                    <span class="text-[10px] font-black tracking-[0.4em] text-gray-400 uppercase mb-4">Latest
+                        Analysis</span>
+                    <p
+                        class="text-[11px] font-bold tracking-[0.2em] text-black/40 max-w-[250px] uppercase leading-relaxed">
+                        Explorations in data science and business intelligence.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-32">
+                <!-- Project 1 -->
+                <div id="goa-project" class="group cursor-pointer flex flex-col md:col-span-2">
+                    <div class="relative overflow-hidden mb-10 rounded-[2.5rem] project-img-container shadow-2xl">
+                        <img src="images/goa_hse.png" alt="Goa Education Dashboard"
+                            class="w-full h-[60vh] md:h-[70vh] object-cover" />
+                        <div
+                            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center backdrop-blur-sm">
+                            <div
+                                class="px-8 py-4 bg-white text-black rounded-full font-bold text-[10px] tracking-widest scale-90 group-hover:scale-100 transition-transform duration-700">
+                                VIEW DASHBOARD</div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-end px-4">
+                        <div>
+                            <span class="text-[10px] font-black tracking-widest text-black/30 uppercase mb-2 block">
+                                Education / Power BI
+                            </span>
+                            <h3 class="text-4xl md:text-6xl font-bold tracking-tighter uppercase font-display">Goa
+                                Higher Education</h3>
+                        </div>
+                        <i data-lucide="arrow-up-right"
+                            class="w-10 h-10 opacity-20 group-hover:opacity-100 transition-opacity"></i>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div id="bmw-project" class="group cursor-pointer flex flex-col">
+                    <div class="relative overflow-hidden mb-10 rounded-[2rem] project-img-container shadow-xl">
+                        <img src="images/bmw1.png" alt="Inventory Dashboard" class="w-full h-[55vh] object-cover" />
+                        <div
+                            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center backdrop-blur-sm">
+                            <div
+                                class="px-8 py-4 bg-white text-black rounded-full font-bold text-[10px] tracking-widest scale-90 group-hover:scale-100 transition-transform duration-700">
+                                VIEW DASHBOARD</div>
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <span class="text-[10px] font-black tracking-widest text-black/30 uppercase mb-2 block">
+                            Automotive / SQL
+                        </span>
+                        <h3 class="text-3xl font-bold tracking-tighter uppercase font-display">BMW Inventory System</h3>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+
+
+                <!-- Project 4 -->
+                <div id="sales-project" class="group cursor-pointer flex flex-col md:mt-24">
+                    <div class="relative overflow-hidden mb-10 rounded-[2rem] project-img-container shadow-xl">
+                        <img src="images/sales.png" alt="Sales Dashboard" class="w-full h-[55vh] object-cover" />
+                        <div
+                            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center backdrop-blur-sm">
+                            <div
+                                class="px-8 py-4 bg-white text-black rounded-full font-bold text-[10px] tracking-widest scale-90 group-hover:scale-100 transition-transform duration-700">
+                                VIEW DASHBOARD</div>
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <span class="text-[10px] font-black tracking-widest text-black/30 uppercase mb-2 block">
+                            Retail / Power BI
+                        </span>
+                        <h3 class="text-3xl font-bold tracking-tighter uppercase font-display">Sales Performance</h3>
+                    </div>
+                </div>
+
+                <!-- Project 5: HR Analytics -->
+                <div id="hr-project" class="group cursor-pointer flex flex-col md:col-span-2">
+                    <div class="relative overflow-hidden mb-10 rounded-[2rem] project-img-container shadow-xl">
+                        <img src="images/hr_dashboard.png" alt="HR Analytics Dashboard"
+                            class="w-full h-[60vh] md:h-[70vh] object-cover object-top" />
+                        <div
+                            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center backdrop-blur-sm">
+                            <div
+                                class="px-8 py-4 bg-white text-black rounded-full font-bold text-[10px] tracking-widest scale-90 group-hover:scale-100 transition-transform duration-700">
+                                VIEW DASHBOARD</div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-end px-4">
+                        <div>
+                            <span class="text-[10px] font-black tracking-widest text-black/30 uppercase mb-2 block">
+                                HR / Power BI
+                            </span>
+                            <h3 class="text-4xl md:text-6xl font-bold tracking-tighter uppercase font-display">HR
+                                Employee Analytics</h3>
+                        </div>
+                        <i data-lucide="arrow-up-right"
+                            class="w-10 h-10 opacity-20 group-hover:opacity-100 transition-opacity"></i>
+                    </div>
+                </div>
+
+                <!-- Project 6: Air Quality Analysis -->
+                <div id="air-quality-project" class="group cursor-pointer flex flex-col md:mt-24">
+                    <div class="relative overflow-hidden mb-10 rounded-[2rem] project-img-container shadow-xl">
+                        <img src="images/air_quality.png" alt="Air Quality Analysis"
+                            class="w-full h-[55vh] object-cover" />
+                        <div
+                            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center backdrop-blur-sm">
+                            <div
+                                class="px-8 py-4 bg-white text-black rounded-full font-bold text-[10px] tracking-widest scale-90 group-hover:scale-100 transition-transform duration-700">
+                                VIEW ANALYSIS</div>
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <span class="text-[10px] font-black tracking-widest text-black/30 uppercase mb-2 block">
+                            Environmental / Python
+                        </span>
+                        <h3 class="text-3xl font-bold tracking-tighter uppercase font-display">Air Quality Analysis</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="py-48 px-6 md:px-12 bg-black text-white text-center overflow-hidden relative rounded-t-[4rem]">
+            <div class="relative z-10">
+                <div class="text-[10px] font-bold tracking-[0.5em] mb-12 opacity-50 uppercase">Ready to leverage your
+                    data?</div>
+                <h2 class="text-[13vw] leading-[0.85] font-black tracking-tighter uppercase mb-16 font-display">
+                    Start an <span class="italic font-normal text-gray-500">Analysis</span>
+                </h2>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=alanmonichan122@gmail.com" target="_blank"
+                    class="inline-flex px-12 py-6 bg-white text-black rounded-full text-[10px] font-bold tracking-[0.4em] hover:scale-110 transition-transform items-center space-x-4 uppercase">
+                    <span>Send a message</span>
+                    <i data-lucide="mail" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <!-- Background Decorative Text -->
+            <div class="absolute bottom-0 left-0 w-full opacity-5 select-none pointer-events-none">
+                <span class="text-[25vw] font-black tracking-tighter italic leading-none block -mb-8">DATA DATA</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+        class="px-6 py-16 md:px-12 bg-black text-white flex flex-col md:flex-row justify-between items-start md:items-center text-[10px] tracking-[0.3em] font-bold uppercase border-t border-white/10">
+        <div class="flex flex-col space-y-4 mb-12 md:mb-0">
+            <div class="text-white font-extrabold text-2xl tracking-tighter font-display">ALAN JM.</div>
+            <!-- <p class="opacity-40">EST. 2024 &bull; CRAFTED WITH CARE</p> -->
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-24">
+            <div class="flex flex-col space-y-4">
+                <span class="opacity-30">Socials</span>
+                <a href="https://github.com/alanjoseph77" class="hover:text-gray-400 transition-colors">GitHub</a>
+                <a href="https://www.linkedin.com/in/alan-joseph-monichan/"
+                    class="hover:text-gray-400 transition-colors">LinkedIn</a>
+            </div>
+            <div class="flex flex-col space-y-4">
+                <span class="opacity-30">Nav</span>
+                <a href="#about-me" class="hover:text-gray-400 transition-colors">About</a>
+                <a href="#projects" class="hover:text-gray-400 transition-colors">Works</a>
+            </div>
+            <div class="flex flex-col space-y-4 col-span-2 md:col-span-1">
+                <span class="opacity-30">Legal</span>
+                <p>© 2026 ALAN JOSEPH MONICHAN. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" id="modal-backdrop"></div>
+        <div class="absolute inset-y-0 right-0 w-full md:w-[600px] bg-[#faf9f6] h-full shadow-2xl transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col"
+            id="modal-panel">
+            <button id="close-modal"
+                class="absolute top-8 right-8 p-3 hover:bg-black hover:text-white rounded-full transition-colors z-10 border border-black/10">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <div class="h-full overflow-y-auto p-12 custom-scrollbar">
+                <span class="text-[10px] font-black tracking-[0.4em] text-gray-400 uppercase mb-6 block">Project
+                    Overview</span>
+                <h2 id="modal-title"
+                    class="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-8 font-display leading-[0.9]">
+                    Project Title
+                </h2>
+                <div class="w-full h-64 rounded-2xl overflow-hidden mb-10 shadow-lg">
+                    <img id="modal-image" src="" alt="Project" class="w-full h-full object-cover">
+                </div>
+                <div class="flex flex-wrap gap-4 mb-10" id="modal-tags">
+                    <!-- Tags injected here -->
+                </div>
+                <div class="prose prose-lg text-black/70 font-medium leading-relaxed" id="modal-description">
+                    <!-- Description injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
