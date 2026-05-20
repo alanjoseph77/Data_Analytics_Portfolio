@@ -195,3 +195,18 @@ document.getElementById('air-quality-project').addEventListener('click', () => o
 
 closeModalBtn.addEventListener('click', closeModal);
 modalBackdrop.addEventListener('click', closeModal);
+
+// Card entrance animation via IntersectionObserver
+const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+            cardObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.card-animate').forEach(card => {
+    card.style.animationPlayState = 'paused';
+    cardObserver.observe(card);
+});
